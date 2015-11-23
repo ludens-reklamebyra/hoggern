@@ -1,0 +1,38 @@
+{
+  "name": "hoggern",
+  "version": "0.0.1",
+  "description": "A christmas kidnap mystery by the famous and legendary Ludens Reklamebyraaaa.",
+  "main": "app.js",
+  "engines": {
+    "node": "5.1.0"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ludens-reklamebyra/hoggern.git"
+  },
+  "keywords": [
+    "kidnap",
+    "crime",
+    "mystery"
+  ],
+  "author": "Stian Bakkane <stianba@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ludens-reklamebyra/hoggern/issues"
+  },
+  "homepage": "https://github.com/ludens-reklamebyra/hoggern#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "flux": "^2.1.1",
+    "jade": "^1.11.0",
+    "react": "^0.14.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-sass": "^2.1.0"
+  }
+}
