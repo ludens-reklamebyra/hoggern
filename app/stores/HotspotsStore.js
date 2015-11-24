@@ -1,15 +1,15 @@
 import {Store} from 'flux/utils';
 import GameDispatcher from '../dispatcher/GameDispatcher';
-import suspectsData from '../../resources/data/suspects.json';
+import hotspotsData from '../../resources/data/hotspots.json';
 
-class SuspectsStore extends Store {
+class HotspotsStore extends Store {
   constructor(dispatcher) {
     super(dispatcher);
-    this._suspects = suspectsData;
+    this._hotspots = hotspotsData;
   }
 
-  getSuspects() {
-    return this._suspects;
+  getHotspots() {
+    return this._hotspots;
   }
 
   __onDispatch(payload) {
@@ -20,4 +20,4 @@ class SuspectsStore extends Store {
   }
 }
 
-export default new SuspectsStore(GameDispatcher);
+export default new HotspotsStore(GameDispatcher);

@@ -4,7 +4,7 @@ import Room from './Room';
 class RoomsList extends Component {
   render() {
     const rooms = this.props.rooms.map((room) => {
-      return <Room name={room.name} unlocked={room.unlocked} />;
+      return <Room key={room._id} name={room.name} unlocked={room.unlocked} />;
     });
 
     return(

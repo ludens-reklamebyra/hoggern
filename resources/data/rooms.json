@@ -2,11 +2,21 @@
   {
     "_id": "batcave",
     "name": "Batcave",
-    "unlocked": true
+    "unlocked": true,
+    "currentStage": 0,
+    "stages": [
+      "batcave--stage-0.png",
+      "batcave--stage-1.png"
+    ]
   },
   {
     "_id": "kjerstins_office",
     "name": "Kjerstins kontor",
-    "unlocked": false
+    "unlocked": false,
+    "currentStage": 0,
+    "stages": [
+      "kjerstins_office--stage-0.png",
+      "kjerstins_office--stage-1.png"
+    ]
   }
 ]

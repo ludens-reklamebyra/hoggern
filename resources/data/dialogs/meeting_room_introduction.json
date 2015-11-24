@@ -14,7 +14,10 @@
   },
   "unlocks": {
     "rooms": [
-      "kjerstins_office"
+      {
+        "room": "kjerstins_office",
+        "stage": 0
+      }
     ],
     "hotspots": [
       "kjerstins_bloody_computer"
