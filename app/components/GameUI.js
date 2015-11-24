@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import RoomsStore from '../stores/RoomsStore';
 import RoomsActionCreator from '../actions/RoomsActionCreator';
 import SuspectsActionCreator from '../actions/SuspectsActionCreator';
+import RoomsList from './RoomsList';
 
 class GameUI extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class GameUI extends Component {
 
     return (
       <div>
-        <h1>Rooms:</h1>
+        <RoomsList rooms={this.props.rooms} />
         <ul>{rooms}</ul>
         <button onClick={this._handleButtonPress}>Unlock Kjerstins kontor</button>
       </div>
