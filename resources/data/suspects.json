@@ -2,11 +2,13 @@
   {
     "_id": "kalle_kareberg",
     "name": "Kalle Kåreberg",
+    "kidnapper": false,
     "clues": []
   },
   {
     "_id": "tore",
     "name": "Tore",
+    "kidnapper": true,
     "clues": []
   }
 ]
