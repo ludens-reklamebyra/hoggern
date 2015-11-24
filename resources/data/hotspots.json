@@ -1,0 +1,14 @@
+[
+  {
+    "_id": "meeting_room_introduction",
+    "room": "batcave",
+    "coords": [10, 50],
+    "solved": false
+  },
+  {
+    "_id": "kjerstins_bloody_computer",
+    "room": "kjerstins_office",
+    "coords": [2, 12],
+    "solved": false
+  }
+]

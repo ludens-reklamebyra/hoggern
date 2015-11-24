@@ -1,0 +1,12 @@
+[
+  {
+    "_id": "batcave",
+    "name": "Batcave",
+    "unlocked": true
+  },
+  {
+    "_id": "kjerstins_office",
+    "name": "Kjerstins kontor",
+    "unlocked": false
+  }
+]

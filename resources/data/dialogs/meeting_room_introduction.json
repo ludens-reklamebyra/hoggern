@@ -1,0 +1,33 @@
+{
+  "title": "Noe forferdelig har skjedd",
+  "dialogBody": "<p>Ballefrans</p>",
+  "task": {
+    "taskType": "quiz_with_alternatives",
+    "taskBaseScore": 100,
+    "taskTitle": "Hva ble nevnt i møtet?",
+    "quizAlternatives": [
+      "Karl er for sen.",
+      "Kjerstin er kidnappet.",
+      "Kåre kom på uventet besøk. Ingen vet hvem Kåre er."
+    ],
+    "correctQuizAlternativeIndex": 0
+  },
+  "unlocks": {
+    "rooms": [
+      "kjerstins_office"
+    ],
+    "hotspots": [
+      "kjerstins_bloody_computer"
+    ],
+    "crimeClues": [],
+    "suspectClues": [
+      {
+        "suspect": "tore",
+        "clue": "Drives a honda",
+        "replaces": null,
+        "type": "alibi",
+        "for": "how"
+      }
+    ]
+  }
+}

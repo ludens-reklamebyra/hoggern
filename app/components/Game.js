@@ -1,30 +1,26 @@
 import React, {Component} from 'react';
 import {Container} from 'flux/utils';
-import TestStore from '../stores/TestStore';
-import TestActionCreator from '../actions/TestActionCreator';
+import RoomsStore from '../stores/RoomsStore';
+import SuspectsStore from '../stores/SuspectsStore';
+import GameUI from './GameUI';
 
 class Game extends Component {
   static getStores() {
-    return [TestStore];
+    return [
+      RoomsStore,
+      SuspectsStore
+    ];
   }
 
   static calculateState(prevState) {
     return {
-      test: TestStore.getState(),
+      rooms: RoomsStore.getRooms(),
+      suspects: SuspectsStore.getState()
     };
   }
 
   render() {
-    return (
-      <div>
-        <h1>{this.state.test}</h1>
-        <a onClick={this._onClick}>Click me</a>
-      </div>
-    );
-  }
-
-  _onClick() {
-    TestActionCreator.test('fønix');
+    return <GameUI rooms={this.state.rooms} suspects={this.state.suspects} />;
   }
 }
 
