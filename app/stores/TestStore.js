@@ -1,19 +1,19 @@
-'use strict';
-const ReduceStore = require('flux/utils').ReduceStore;
+import {ReduceStore} from 'flux/utils';
+import GameDispatcher from '../dispatcher/GameDispatcher';
 
 class TestStore extends ReduceStore {
   getInitialState() {
-    return {
-      test: 'test'
-    };
+    return 'test';
   }
 
   reduce(state, action) {
     switch (action.type) {
+      case 'test/test':
+        return action.text;
       default:
         return state;
     }
   }
 }
 
-module.exports = TestStore;
+export default new TestStore(GameDispatcher);

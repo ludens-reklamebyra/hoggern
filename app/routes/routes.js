@@ -1,11 +1,10 @@
-const React = require('react');
-const ReactDOMServer = require('react-dom/server');
-const Game = React.createFactory(require('../components/Game'));
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import Game from '../components/Game';
 
-module.exports = function(app) {
+export default function(app) {
 	app.get('/', (req, res) => {
-		const markup = ReactDOMServer.renderToString(Game());
-    console.log(markup);
+		const markup = ReactDOMServer.renderToString(<Game />);
     res.render('game', {game: markup});
 	});
 };

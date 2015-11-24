@@ -1,9 +1,9 @@
-'use strict';
-const React = require('react');
-const Container = require('flux/utils').Container;
-const TestStore = require('../stores/TestStore');
+import React, {Component} from 'react';
+import {Container} from 'flux/utils';
+import TestStore from '../stores/TestStore';
+import TestActionCreator from '../actions/TestActionCreator';
 
-class Game extends React.Component {
+class Game extends Component {
   static getStores() {
     return [TestStore];
   }
@@ -22,6 +22,11 @@ class Game extends React.Component {
       </div>
     );
   }
+
+  _onClick() {
+    TestActionCreator.test('fønix');
+  }
 }
+
 const GameContainer = Container.create(Game);
-module.exports = GameContainer;
+export default GameContainer;

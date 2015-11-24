@@ -2,7 +2,7 @@
   "name": "hoggern",
   "version": "0.0.1",
   "description": "A christmas kidnap mystery by the famous and legendary Ludens Reklamebyraaaa.",
-  "main": "app.js",
+  "main": "start.js",
   "engines": {
     "node": "5.1.0"
   },

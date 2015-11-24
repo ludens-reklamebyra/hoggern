@@ -40,7 +40,7 @@ gulp.task('bundle', () => {
 
 gulp.task('startServer', () => {
   nodemon({
-    script: 'app.js',
+    script: 'start.js',
     ext: 'js ejs',
     env: { 'NODE_ENV': 'development' }
   })
