@@ -7,7 +7,8 @@
     "node": "5.1.0"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "postinstall": "bower cache clean && bower install && gulp compile --production"
   },
   "repository": {
     "type": "git",
