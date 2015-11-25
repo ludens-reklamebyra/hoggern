@@ -11,12 +11,13 @@ class MapArea extends Component {
 
   render() {
     const rooms = this.props.rooms.map((room) => {
-      const className = room.unlocked ?
-        'room-card room-card__unlocked' : 'room-card';
+      const className = room.unlocked
+        ? 'room-card__container room-card__container--unlocked'
+        : 'room-card__container';
 
       return(
-        <div key={room._id} className={className}>
-          <div className='room-card__container'>
+        <div key={room._id} className='room-card'>
+          <div className={className}>
             <div className='room-card__title'>{room.name}</div>
           </div>
         </div>

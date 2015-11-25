@@ -17,10 +17,13 @@
     @include flexbox;
     @include flex-flow(column wrap);
     @include justify-content(center);
-    background: $light-gray;
     border-radius: .6rem;
     height: 10rem;
     padding: 1rem;
+
+    &--unlocked {
+      background: $light-gray;
+    }
   }
 
   &__title {
