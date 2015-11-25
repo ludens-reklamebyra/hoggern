@@ -10,5 +10,23 @@
     "name": "Tore",
     "kidnapper": true,
     "clues": []
+  },
+  {
+    "_id": "tore_",
+    "name": "Tore",
+    "kidnapper": true,
+    "clues": []
+  },
+  {
+    "_id": "tore__",
+    "name": "Tore",
+    "kidnapper": true,
+    "clues": []
+  },
+  {
+    "_id": "tore___",
+    "name": "Tore",
+    "kidnapper": true,
+    "clues": []
   }
 ]

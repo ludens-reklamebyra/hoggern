@@ -18,5 +18,25 @@
       "kjerstins_office--stage-0.png",
       "kjerstins_office--stage-1.png"
     ]
+  },
+  {
+    "_id": "kjerstins_office_",
+    "name": "Kjerstins kontor",
+    "unlocked": false,
+    "currentStage": 0,
+    "stages": [
+      "kjerstins_office--stage-0.png",
+      "kjerstins_office--stage-1.png"
+    ]
+  },
+  {
+    "_id": "kjerstins_office__",
+    "name": "Kjerstins kontor",
+    "unlocked": false,
+    "currentStage": 0,
+    "stages": [
+      "kjerstins_office--stage-0.png",
+      "kjerstins_office--stage-1.png"
+    ]
   }
 ]

@@ -1,3 +1,7 @@
 node_modules
+bower_components
 npm-debug.log
 public/js/app.js
+public/css/app.css
+public/fonts/**/*
+!public/fonts/.gitkeep

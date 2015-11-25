@@ -1,14 +1,14 @@
 {
   "where": {
-    "undiscoveredText": "Hvor holdes Kjerstin?",
+    "heading": "Hvor holdes Kjerstin?",
     "discoveredText": "Kjerstin holdes i kjelleren på Club 7."
   },
   "when": {
-    "undiscoveredText": "Når ble Kjerstin kidnappet?",
+    "heading": "Når ble Kjerstin kidnappet?",
     "discoveredText": "Kjerstin ble kidnappet forrige jul. Hun har blitt erstattet av en alien fra jupiter."
   },
   "how": {
-    "undiscoveredText": "Hvordan ble Kjerstin kidnappet?",
+    "heading": "Hvordan ble Kjerstin kidnappet?",
     "discoveredText": "Kjerstin ble slått i hodet med en avbitertang. Det så vondt ut."
   }
 }

@@ -1,0 +1,51 @@
+html, body {
+  background: lighten($dark-almost-black, 3%);
+  color: $white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+}
+
+h2 {
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.button {
+  background: $dark-almost-black;
+  border: 0;
+  border-radius: .4rem;
+  box-shadow: none;
+  height: 3rem;
+  padding: 0 1rem;
+
+  &--icon {
+    @include flexbox;
+    @include flex-direction(row);
+    text-align: left;
+  }
+
+  &__icon {
+    @include flex(1);
+    @include align-self(flex-end);
+    font-size: 1.4em;
+    text-align: right;
+  }
+}
+
+.game {
+  @include flexbox;
+  @include flex-direction(column);
+  @include justify-content(center);
+  height: 100%;
+}
+
+.interaction {
+  color: $slightly-lighter-light-gray;
+  cursor: pointer;
+
+  &__icon {
+    font-size: 1.4em;
+    margin-right: .2em;
+  }
+}

@@ -11,15 +11,18 @@ class PlayerStore extends Store {
       crimeClues: {
         where: {
           discovered: false,
-          text: crimeClues.where.undiscoveredText
+          heading: crimeClues.where.heading,
+          discoveredText: ''
         },
         when: {
           discovered: false,
-          text: crimeClues.when.undiscoveredText
+          heading: crimeClues.when.heading,
+          discoveredText: ''
         },
         how: {
           discovered: false,
-          text: crimeClues.how.undiscoveredText
+          heading: crimeClues.how.heading,
+          discoveredText: ''
         }
       }
     };
@@ -36,7 +39,7 @@ class PlayerStore extends Store {
         this.__emitChange();
       case 'player/discoverCrimeClue':
         this._playerData.crimeClues[payload.key].discovered = true;
-        this._playerData.crimeClues[payload.key].text = crimeClues[payload.key].discoveredText;
+        this._playerData.crimeClues[payload.key].discoveredText = crimeClues[payload.key].discoveredText;
         this.__emitChange();
       default:
         return false;

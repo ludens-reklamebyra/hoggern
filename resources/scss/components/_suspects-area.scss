@@ -1,0 +1,40 @@
+.suspects-area {
+  background: $slightly-blackier-shade-of-gray;
+
+  h2 {
+    text-align: center;
+  }
+}
+
+.suspects-list {
+  @include flexbox;
+  @include flex-flow(row wrap);
+  margin: 0 -.5rem;
+  padding: 0 1rem 1rem;
+
+  .suspect-card {
+    @include flex(1);
+    margin: 0 .5rem;
+  }
+}
+
+.suspect-card {
+  text-align: center;
+
+  &__container {
+    background: $light-gray;
+    border-radius: .6rem;
+    padding: 1rem;
+  }
+
+  &__image {
+    background: $dark-almost-black;
+    border-radius: .6rem;
+
+    i {
+      color: $light-gray;
+      font-size: 6em;
+      padding: 1rem 2rem;
+    }
+  }
+}

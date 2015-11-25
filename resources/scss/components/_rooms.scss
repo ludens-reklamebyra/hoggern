@@ -1,0 +1,33 @@
+.rooms-list {
+  @include flexbox;
+  @include flex-flow(row wrap);
+  margin: 0 -.5rem -.5rem;
+
+  .room-card {
+    @include flex(1, 50%);
+    box-sizing: border-box;
+    padding: .5rem;
+  }
+}
+
+.room-card {
+  text-align: center;
+
+  &__container {
+    @include flexbox;
+    @include flex-flow(column wrap);
+    @include justify-content(center);
+    background: $light-gray;
+    border-radius: .6rem;
+    height: 10rem;
+    padding: 1rem;
+  }
+
+  &__title {
+    color: $another-light-shade-of-gray;
+    line-height: 1.1em;
+    font-size: 2.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}

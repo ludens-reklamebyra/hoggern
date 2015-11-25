@@ -9,6 +9,7 @@ const rename = require('gulp-rename');
 const sourcemaps = require('gulp-sourcemaps');
 const argv = require('yargs').argv;
 const nodemon = require('gulp-nodemon');
+const livereload = require('gulp-livereload');
 
 gulp.task('bundle', () => {
   const bundler = browserify({
@@ -38,13 +39,37 @@ gulp.task('bundle', () => {
   bundle();
 });
 
+gulp.task('sass', function() {
+  gulp.src('./resources/scss/app.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass({
+      outputStyle: 'nested'
+    }).on('error', sass.logError))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('./public/css'))
+    .pipe(livereload());
+});
+
+gulp.task('watch', function() {
+  livereload.listen();
+  gulp.watch('./resources/scss/**/*.scss', ['sass']);
+  gulp.watch(['./app/**/*.js'], function() {
+    livereload.reload();
+  });
+});
+
+gulp.task('copyfonts', function() {
+   gulp.src('./bower_components/font-awesome/fonts/**/*.{ttf,woff,eof,svg}')
+   .pipe(gulp.dest('./public/fonts'));
+});
+
 gulp.task('startServer', () => {
   nodemon({
     script: 'start.js',
     ext: 'js ejs',
     env: { 'NODE_ENV': 'development' }
-  })
+  });
 });
 
-gulp.task('default', ['bundle', 'startServer']);
-gulp.task('compile', ['bundle']);
+gulp.task('default', ['copyfonts', 'bundle', 'sass', 'watch', 'startServer']);
+gulp.task('compile', ['copyfonts', 'bundle', 'sass']);

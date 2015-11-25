@@ -1,0 +1,27 @@
+.notes {
+  background: $light-gray;
+  font-family: 'Nothing You Could Do', cursive;
+  font-size: 1.1em;
+  font-weight: 400;
+  padding: 1rem 1rem 1rem 0;
+
+  &__title {
+    font-size: 1.2em;
+    margin-left: 2.5rem;
+    text-transform: uppercase;
+  }
+}
+
+.notes-list {
+  &__item {
+    margin-bottom: 1rem;
+  }
+
+  &__heading {
+    margin-bottom: .3rem;
+  }
+
+  &__undiscovered {
+    color: $red;
+  }
+}

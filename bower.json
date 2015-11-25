@@ -1,0 +1,21 @@
+{
+  "name": "hoggern",
+  "version": "0.0.0",
+  "homepage": "https://github.com/ludens-reklamebyra/hoggern",
+  "authors": [
+    "Stian Bakkane <stianba@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize.css": "~3.0.3",
+    "sass-flex-mixin": "mastastealth/sass-flex-mixin#~1.0.1",
+    "font-awesome": "~4.5.0"
+  }
+}

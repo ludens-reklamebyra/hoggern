@@ -1,0 +1,12 @@
+@import 'bower_components/normalize.css/normalize';
+@import 'bower_components/font-awesome/scss/font-awesome';
+@import 'bower_components/sass-flex-mixin/flexbox';
+@import './settings/variables';
+@import './components/game';
+@import './components/game-board';
+@import './components/menu-area';
+@import './components/menu';
+@import './components/notes';
+@import './components/map-area';
+@import './components/rooms';
+@import './components/suspects-area';
