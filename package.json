@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "eslint-plugin-react": "^3.10.0",
+    "gulp-eslint": "^1.1.1",
     "gulp-livereload": "^3.8.1",
     "gulp-nodemon": "^2.0.4",
     "gulp-scss-lint": "^0.3.8",
