@@ -1,18 +1,24 @@
 import React, {Component} from 'react'; // eslint-disable-line no-unused-vars
 
 class Room extends Component {
+  fetchDialog(hotspotID) {
+    this.props.handlePopulateModal(hotspotID, 'body');
+  }
+
   render() {
     const hotspots = this.props.hotspots.map((hotspot) => {
       return(
-        <div
+        <button
           key={hotspot._id}
-          onClick={() => this.props.handleModal(hotspot._id)}
+          onClick={() => {
+            this.props.handleOpenModal(() => this.fetchDialog(hotspot._id));
+          }}
           className='hotspot'
           style={{
             top: hotspot.coords[0] + 'px',
             left: hotspot.coords[1] + 'px'
           }}>
-        </div>
+        </button>
       );
     });
 

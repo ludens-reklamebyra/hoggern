@@ -11,6 +11,20 @@ class MapArea extends Component {
     }
   }
 
+  componentDidMount() {
+    document.addEventListener(
+      'keydown',
+      this._handleBackPress.bind(this)
+      , false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener(
+      'keydown',
+      this._handleBackPress.bind(this)
+      , false);
+  }
+
   render() {
     const rooms = this.props.rooms.map((room) => {
       const className = room.unlocked
@@ -19,11 +33,15 @@ class MapArea extends Component {
 
       return(
         <div key={room._id} className='room-card'>
-          <div
-            onClick={() => this._handleRoomClick(room)}
+          <a
+            href='#'
+            onClick={(e) => {
+              e.preventDefault();
+              this._handleRoomClick(room);
+            }}
             className={className}>
             <div className='room-card__title'>{room.name}</div>
-          </div>
+          </a>
         </div>
       );
     });
@@ -34,10 +52,15 @@ class MapArea extends Component {
           <div className='map-nav__interaction map-nav__interaction--back'>
             <span className='interaction'>
               {this.state.inRoom ?
-                <div onClick={() => this._handleBackClick()}>
+                <a
+                  href='#'
+                  onClick={(e) => {
+                    e.preventDefault();
+                    this._handleBackClick();
+                  }}>
                   <i className='interaction__icon fa fa-angle-left'></i>
                   Tilbake til spillbrettet
-                </div> : null}
+                </a> : null}
             </span>
           </div>
           <h2>{this.state.inRoom ? this.state.inRoom.name : 'Ludens lokaler'}</h2>
@@ -48,7 +71,8 @@ class MapArea extends Component {
             <Room
               room={this.state.inRoom}
               hotspots={this.state.relevantHotspots}
-              handleModal={this.props.handleModal} />
+              handleOpenModal={this.props.handleOpenModal}
+              handlePopulateModal={this.props.handlePopulateModal} />
             : <div className='rooms-list'>{rooms}</div>
           }
         </div>
@@ -76,6 +100,15 @@ class MapArea extends Component {
     this.setState({
       inRoom: null
     });
+  }
+
+  _handleBackPress(e) {
+    if (this.state.inRoom) {
+      if (e.keyCode === 8) {
+        e.preventDefault();
+        this._handleBackClick();
+      }
+    }
   }
 }
 

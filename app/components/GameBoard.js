@@ -10,7 +10,8 @@ class GameBoard extends Component {
         <MapArea
           rooms={this.props.rooms}
           hotspots={this.props.hotspots}
-          handleModal={this.props.handleModal} />
+          handleOpenModal={this.props.handleOpenModal}
+          handlePopulateModal={this.props.handlePopulateModal} />
         <MenuArea playerData={this.props.playerData} />
         <SuspectsArea suspects={this.props.suspects} />
       </div>

@@ -1,0 +1,57 @@
+.modal-wrapper {
+  @include flexbox;
+  @include flex-direction(column);
+  @include align-items(center);
+  @include justify-content(center);
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.modal {
+  max-width: 80%;
+  min-width: 20rem;
+  z-index: 20;
+
+  &__container {
+    background: $white;
+    border-radius: .6rem;
+    box-shadow: 5px 5px 0 $dark-opacity;
+    box-sizing: border-box;
+    color: $dark-almost-black;
+    padding: 1rem;
+    position: relative;
+  }
+
+  &__title {
+    font-size: 1.5em;
+    font-weight: 700;
+    line-height: 1.2em;
+    margin-right: 2.5rem;
+  }
+
+  &__close {
+    background: none;
+    border: 0;
+    float: right;
+    font-size: 2em;
+    line-height: 1em;
+    padding: 0;
+    position: absolute;
+    right: 1rem;
+    top: .6rem;
+  }
+}
+
+.overlay {
+  background: $dark-opacity;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 10;
+}

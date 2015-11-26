@@ -35,6 +35,18 @@ h2 {
   }
 }
 
+.modal-button {
+  background: $green;
+  border: 0;
+  border-radius: .4rem;
+  box-shadow: 3px 3px 0 $green-opacity;
+  color: $white;
+  font-size: 1.3em;
+  font-weight: 700;
+  height: 2.3em;
+  padding: 0 1em;
+}
+
 .game {
   @include flexbox;
   @include flex-direction(column);

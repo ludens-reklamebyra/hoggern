@@ -24,5 +24,10 @@
     @include flexbox;
     @include justify-content(flex-end);
     @include flex-direction(column);
+
+    a {
+      color: $slightly-lighter-light-gray;
+      text-decoration: none;
+    }
   }
 }

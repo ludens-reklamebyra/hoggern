@@ -97,7 +97,8 @@ gulp.task('js-lint', () => {
         'react/react-in-jsx-scope': 1,
       },
       env: {
-        node: true
+        node: true,
+        browser: true
       }
     }))
     .pipe(eslint.format())
