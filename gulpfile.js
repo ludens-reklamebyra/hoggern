@@ -10,18 +10,24 @@ const sourcemaps = require('gulp-sourcemaps');
 const argv = require('yargs').argv;
 const nodemon = require('gulp-nodemon');
 const livereload = require('gulp-livereload');
+const uglify = require('gulp-uglify');
+const gulpif = require('gulp-if');
+const scsslint = require('gulp-scss-lint');
+const eslint = require('gulp-eslint');
+
+const dev = !argv.production ? true : false;
 
 gulp.task('bundle', () => {
   const bundler = browserify({
     cache: {},
     packageCache: {},
     entries: ['./resources/js/app.js'],
-    debug: true
+    debug: dev
   });
 
   bundler.transform(babelify, {presets: ['es2015', 'react']});
 
-  if (!argv.production) {
+  if (dev) {
     bundler = watchify(bundler);
   }
 
@@ -32,6 +38,7 @@ gulp.task('bundle', () => {
       .bundle()
       .pipe(source('./resources/js/app.js'))
       .pipe(bufferifyify())
+      .pipe(gulpif(!dev, uglify()))
       .pipe(rename('app.js'))
       .pipe(gulp.dest('./public/js/'))
   }
@@ -43,11 +50,11 @@ gulp.task('sass', function() {
   gulp.src('./resources/scss/app.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
-      outputStyle: 'nested'
+      outputStyle: dev ? 'nested' : 'compressed'
     }).on('error', sass.logError))
-    .pipe(sourcemaps.write())
+    .pipe(gulpif(dev, sourcemaps.write()))
     .pipe(gulp.dest('./public/css'))
-    .pipe(livereload());
+    .pipe(gulpif(dev, livereload()));
 });
 
 gulp.task('watch', function() {
@@ -63,13 +70,45 @@ gulp.task('copyfonts', function() {
    .pipe(gulp.dest('./public/fonts'));
 });
 
+gulp.task('scss-lint', function() {
+  return gulp.src('./resources/scss/**/*.scss')
+    .pipe(scsslint());
+});
+
+gulp.task('js-lint', function() {
+  return gulp.src(['./app/**/*.js'])
+    .pipe(eslint({
+      extends: 'eslint:recommended',
+      plugins: [
+        "react"
+      ],
+      ecmaFeatures: {
+        modules: true,
+        jsx: true,
+        classes: true,
+        blockBindings: true,
+        arrowFunctions: true,
+        forOf: true
+      },
+      rules: {
+        'react/react-in-jsx-scope': 1,
+      },
+      env: {
+        node: true
+      }
+    }))
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
+});
+
 gulp.task('startServer', () => {
   nodemon({
     script: 'start.js',
     ext: 'js ejs',
-    env: { 'NODE_ENV': 'development' }
+    env: {'NODE_ENV': 'development'},
   });
 });
 
 gulp.task('default', ['copyfonts', 'bundle', 'sass', 'watch', 'startServer']);
 gulp.task('compile', ['copyfonts', 'bundle', 'sass']);
+gulp.task('lint', ['scss-lint', 'js-lint']);

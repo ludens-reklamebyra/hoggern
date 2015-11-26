@@ -1,9 +1,10 @@
-html, body {
+html,
+body {
   background: lighten($dark-almost-black, 3%);
   color: $white;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 300;
   font-size: 1em;
+  font-weight: 300;
 }
 
 h2 {

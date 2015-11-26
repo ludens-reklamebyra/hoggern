@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'; // eslint-disable-line no-unused-vars
 import {Container} from 'flux/utils';
 import PlayerStore from '../stores/PlayerStore';
 import RoomsStore from '../stores/RoomsStore';
@@ -16,7 +16,7 @@ class Game extends Component {
     ];
   }
 
-  static calculateState(prevState) {
+  static calculateState() {
     return {
       playerData: PlayerStore.getPlayerData(),
       rooms: RoomsStore.getRooms(),

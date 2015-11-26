@@ -36,6 +36,7 @@ class RoomsStore extends Store {
 
         this._rooms = rms;
         this.__emitChange();
+        break;
       default:
         return false;
     }

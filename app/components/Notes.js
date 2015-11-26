@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'; // eslint-disable-line no-unused-vars
 import NotesListItem from './NotesListItem';
 
 class Notes extends Component {

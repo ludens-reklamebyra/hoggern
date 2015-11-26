@@ -37,10 +37,12 @@ class PlayerStore extends Store {
       case 'player/addScore':
         this._playerData.score += payload.scoreToAdd;
         this.__emitChange();
+        break;
       case 'player/discoverCrimeClue':
         this._playerData.crimeClues[payload.key].discovered = true;
         this._playerData.crimeClues[payload.key].discoveredText = crimeClues[payload.key].discoveredText;
         this.__emitChange();
+        break;
       default:
         return false;
     }
