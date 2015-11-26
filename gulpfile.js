@@ -47,7 +47,7 @@ gulp.task('bundle', () => {
   bundle();
 });
 
-gulp.task('sass', function() {
+gulp.task('sass', () => {
   gulp.src('./resources/scss/app.scss')
     .pipe(sourcemaps.init())
     .pipe(sass({
@@ -58,25 +58,25 @@ gulp.task('sass', function() {
     .pipe(gulpif(dev, livereload()));
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', () => {
   livereload.listen();
   gulp.watch('./resources/scss/**/*.scss', ['sass']);
-  gulp.watch(['./app/**/*.js'], function() {
+  gulp.watch(['./app/**/*.js'], () => {
     livereload.reload();
   });
 });
 
-gulp.task('copyfonts', function() {
-   gulp.src('./bower_components/font-awesome/fonts/**/*.{ttf,woff,eof,svg}')
+gulp.task('copyfonts', () => {
+   gulp.src('./bower_components/font-awesome/fonts/**/*.{ttf,woff,woff2,eof,svg}')
    .pipe(gulp.dest('./public/fonts'));
 });
 
-gulp.task('scss-lint', function() {
+gulp.task('scss-lint', () => {
   return gulp.src('./resources/scss/**/*.scss')
     .pipe(scsslint());
 });
 
-gulp.task('js-lint', function() {
+gulp.task('js-lint', () => {
   return gulp.src(['./app/**/*.js'])
     .pipe(eslint({
       extends: 'eslint:recommended',
