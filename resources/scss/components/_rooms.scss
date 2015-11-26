@@ -17,17 +17,19 @@
     @include flexbox;
     @include flex-flow(column wrap);
     @include justify-content(center);
+    background: $slightly-blackier-shade-of-gray;
     border-radius: .6rem;
+    color: $medium-light-gray;
     height: 10rem;
     padding: 1rem;
 
     &--unlocked {
       background: $light-gray;
+      color: $another-light-shade-of-gray;
     }
   }
 
   &__title {
-    color: $another-light-shade-of-gray;
     font-size: 2.5em;
     font-weight: 700;
     line-height: 1.1em;
