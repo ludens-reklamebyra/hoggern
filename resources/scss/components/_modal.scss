@@ -46,6 +46,35 @@
   }
 }
 
+.dialog-wrapper {
+  @include flexbox;
+  @include flex-direction(row);
+  margin-top: 2rem;
+
+  &--task {
+    min-width: 46rem;
+
+    .dialog-body {
+      @include flex(1, 60%);
+    }
+
+    .dialog-task {
+      @include flex(1, 40%);
+      border-left: 1px solid $very-light-gray;
+      box-sizing: border-box;
+      margin-left: 1rem;
+      min-width: 20rem;
+      padding-left: 1rem;
+    }
+  }
+}
+
+.dialog-body {
+  max-height: 550px;
+  min-width: 35rem;
+  overflow-y: auto;
+}
+
 .overlay {
   background: $dark-opacity;
   bottom: 0;

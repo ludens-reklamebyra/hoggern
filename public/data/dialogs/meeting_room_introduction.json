@@ -1,6 +1,6 @@
 {
   "title": "Noe forferdelig har skjedd",
-  "body": "<p>Ballefrans</p>",
+  "body": "<iframe width='560' height='315' src='https://www.youtube.com/embed/9DmxmiLj-Ag' frameborder='0' allowfullscreen></iframe><p>Ballefrans</p>",
   "task": {
     "taskType": "quiz_with_alternatives",
     "taskBaseScore": 100,

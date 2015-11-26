@@ -23,8 +23,11 @@ class Room extends Component {
   }
 
   formatDialog(data) {
+    const className = data.task ?
+      'dialog-wrapper dialog-wrapper--task' : 'dialog-wrapper';
+
     return(
-      <div className='dialog-wrapper'>
+      <div className={className}>
         <div
           className='dialog-body'
           dangerouslySetInnerHTML={{__html: data.body}}>
