@@ -14,6 +14,7 @@ const uglify = require('gulp-uglify');
 const gulpif = require('gulp-if');
 const scsslint = require('gulp-scss-lint');
 const eslint = require('gulp-eslint');
+const runSequence = require('run-sequence');
 
 const dev = !argv.production ? true : false;
 
@@ -109,6 +110,8 @@ gulp.task('startServer', () => {
   });
 });
 
-gulp.task('default', ['copyfonts', 'bundle', 'sass', 'watch', 'startServer']);
 gulp.task('compile', ['copyfonts', 'bundle', 'sass']);
 gulp.task('lint', ['scss-lint', 'js-lint']);
+gulp.task('default', () => {
+  runSequence('lint', ['compile', 'watch', 'startServer']);
+});
