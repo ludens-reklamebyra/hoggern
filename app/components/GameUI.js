@@ -72,6 +72,7 @@ class GameUI extends Component {
           handlePopulateModal={this.populateModal} />
         {this.state.modal ?
           <Modal
+            loading={this.state.modal.loading}
             title={this.state.modal.title}
             body={this.state.modal.body}
             handleCloseModal={this.closeModal} />

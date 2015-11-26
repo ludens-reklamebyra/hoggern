@@ -1,6 +1,6 @@
 {
   "title": "Noe forferdelig har skjedd",
-  "dialogBody": "<p>Ballefrans</p>",
+  "body": "<p>Ballefrans</p>",
   "task": {
     "taskType": "quiz_with_alternatives",
     "taskBaseScore": 100,

@@ -47,6 +47,12 @@ h2 {
   padding: 0 1em;
 }
 
+.loading {
+  font-size: 4em;
+  padding: 4rem;
+  text-align: center;
+}
+
 .game {
   @include flexbox;
   @include flex-direction(column);

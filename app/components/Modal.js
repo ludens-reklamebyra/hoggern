@@ -21,7 +21,10 @@ class Modal extends Component {
         <div className='modal'>
           <div className='modal__container'>
             <div className='modal__header'>
-              <div className='modal__title'>{this.props.title}</div>
+              {this.props.title ?
+                <div className='modal__title'>{this.props.title}</div>
+                : null
+              }
               <button
                 onClick={this.props.handleCloseModal}
                 autoFocus={true}
@@ -29,7 +32,11 @@ class Modal extends Component {
                 <i className='fa fa-close'></i>
               </button>
             </div>
-            {this.props.body}
+            {this.props.loading ?
+              <div className='loading'>
+                <i className='fa fa-refresh fa-spin'></i>
+              </div>
+              : this.props.body}
           </div>
         </div>
         <div onClick={this.props.handleCloseModal} className='overlay'></div>

@@ -1,6 +1,6 @@
 import {Store} from 'flux/utils';
 import GameDispatcher from '../dispatcher/GameDispatcher';
-import roomsData from '../../resources/data/rooms.json';
+import roomsData from '../../public/data/rooms.json';
 
 class RoomsStore extends Store {
   constructor(dispatcher) {

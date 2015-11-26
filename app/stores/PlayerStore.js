@@ -1,6 +1,6 @@
 import {Store} from 'flux/utils';
 import GameDispatcher from '../dispatcher/GameDispatcher';
-import crimeClues from '../../resources/data/crime-clues.json';
+import crimeClues from '../../public/data/crime-clues.json';
 
 class PlayerStore extends Store {
   constructor(dispatcher) {

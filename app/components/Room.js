@@ -2,7 +2,36 @@ import React, {Component} from 'react'; // eslint-disable-line no-unused-vars
 
 class Room extends Component {
   fetchDialog(hotspotID) {
-    this.props.handlePopulateModal(hotspotID, 'body');
+    const xhr = new XMLHttpRequest();
+
+    xhr.addEventListener("load", () => {
+      if (xhr.status === 200) {
+        const data = JSON.parse(xhr.responseText);
+        const body = this.formatDialog(data);
+        this.props.handlePopulateModal(data.title, body);
+      } else {
+        this.props.handlePopulateModal('Oh no!', 'Something wrong happened.');
+      }
+    });
+
+    xhr.addEventListener("error", () => {
+      this.props.handlePopulateModal('Oh no!', 'Something wrong happened.');
+    });
+
+    xhr.open('get', '/data/dialogs/' + hotspotID + '.json');
+    xhr.send();
+  }
+
+  formatDialog(data) {
+    return(
+      <div className='dialog-wrapper'>
+        <div
+          className='dialog-body'
+          dangerouslySetInnerHTML={{__html: data.body}}>
+        </div>
+        <div className='dialog-task'>TASK!</div>
+      </div>
+    );
   }
 
   render() {
