@@ -3,14 +3,21 @@
     "_id": "meeting_room_introduction",
     "room": "batcave",
     "stage": 0,
-    "coords": [200, 100],
+    "coords": [240, 100],
     "solved": false
   },
   {
     "_id": "kjerstins_bloody_computer",
-    "room": "kjerstins_office",
+    "room": "kjerstins_office_",
     "stage": 0,
-    "coords": [2, 12],
+    "coords": [150, 450],
+    "solved": false
+  },
+  {
+    "_id": "meeting_room_toil",
+    "room": "batcave",
+    "stage": 0,
+    "coords": [200, 500],
     "solved": false
   }
 ]

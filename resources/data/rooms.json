@@ -22,7 +22,7 @@
   {
     "_id": "kjerstins_office_",
     "name": "Kjerstins kontor",
-    "unlocked": false,
+    "unlocked": true,
     "currentStage": 0,
     "stages": [
       "kjerstins_office--stage-0.png",
