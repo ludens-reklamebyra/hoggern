@@ -39,3 +39,33 @@
     text-transform: uppercase;
   }
 }
+
+.room-wrapper {
+  height: 425px;
+  position: relative;
+  width: 100%;
+}
+
+.room-underlay {
+  @include blur(2);
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+.room {
+  background-size: cover;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 672px;
+  z-index: 2;
+}

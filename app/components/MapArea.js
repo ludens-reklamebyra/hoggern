@@ -1,11 +1,13 @@
 import React, {Component} from 'react'; // eslint-disable-line no-unused-vars
+import Room from './Room';
 
 class MapArea extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      inRoom: null
+      inRoom: null,
+      relevantHotspots: null
     }
   }
 
@@ -42,7 +44,13 @@ class MapArea extends Component {
           <div className='map-nav__interaction'></div>
         </div>
         <div className='map-content'>
-          {this.state.inRoom ? null : <div className='rooms-list'>{rooms}</div>}
+          {this.state.inRoom ?
+            <Room
+              room={this.state.inRoom}
+              hotspots={this.state.relevantHotspots}
+              handleModal={this.props.handleModal} />
+            : <div className='rooms-list'>{rooms}</div>
+          }
         </div>
       </div>
     );
@@ -50,9 +58,17 @@ class MapArea extends Component {
 
   _handleRoomClick(room) {
     if (!room.unlocked) return false;
+    let relevantHotspots = [];
+
+    for (let hotspot of this.props.hotspots) {
+      if (hotspot.room === room._id && hotspot.stage === room.currentStage) {
+        relevantHotspots.push(hotspot);
+      }
+    }
 
     this.setState({
-      inRoom: room
+      inRoom: room,
+      relevantHotspots: relevantHotspots
     });
   }
 

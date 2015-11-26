@@ -72,7 +72,9 @@ gulp.task('copyfonts', () => {
 });
 
 gulp.task('scss-lint', () => {
-  return gulp.src('./resources/scss/**/*.scss')
+  return gulp.src([
+    './resources/scss/**/*.scss',
+    '!./resources/scss/settings/_mixins.scss'])
     .pipe(scsslint());
 });
 

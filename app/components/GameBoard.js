@@ -7,7 +7,10 @@ class GameBoard extends Component {
   render() {
     return(
       <div className='game-board'>
-        <MapArea rooms={this.props.rooms} />
+        <MapArea
+          rooms={this.props.rooms}
+          hotspots={this.props.hotspots}
+          handleModal={this.props.handleModal} />
         <MenuArea playerData={this.props.playerData} />
         <SuspectsArea suspects={this.props.suspects} />
       </div>

@@ -2,6 +2,7 @@
 @import 'bower_components/font-awesome/scss/font-awesome';
 @import 'bower_components/sass-flex-mixin/flexbox';
 @import './settings/variables';
+@import './settings/mixins';
 @import './components/game';
 @import './components/game-board';
 @import './components/menu-area';
@@ -9,4 +10,5 @@
 @import './components/notes';
 @import './components/map-area';
 @import './components/rooms';
+@import './components/hotspots';
 @import './components/suspects-area';
