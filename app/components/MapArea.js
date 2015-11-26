@@ -17,7 +17,9 @@ class MapArea extends Component {
 
       return(
         <div key={room._id} className='room-card'>
-          <div className={className}>
+          <div
+            onClick={() => this._handleRoomClick(room)}
+            className={className}>
             <div className='room-card__title'>{room.name}</div>
           </div>
         </div>
@@ -30,11 +32,13 @@ class MapArea extends Component {
           <div className='map-nav__interaction map-nav__interaction--back'>
             <span className='interaction'>
               {this.state.inRoom ?
-                <div><i className='interaction__icon fa fa-angle-left'></i>
-                Tilbake til spillbrettet</div> : null}
+                <div onClick={() => this._handleBackClick()}>
+                  <i className='interaction__icon fa fa-angle-left'></i>
+                  Tilbake til spillbrettet
+                </div> : null}
             </span>
           </div>
-          <h2>Ludens lokaler</h2>
+          <h2>{this.state.inRoom ? this.state.inRoom.name : 'Ludens lokaler'}</h2>
           <div className='map-nav__interaction'></div>
         </div>
         <div className='map-content'>
@@ -42,6 +46,20 @@ class MapArea extends Component {
         </div>
       </div>
     );
+  }
+
+  _handleRoomClick(room) {
+    if (!room.unlocked) return false;
+
+    this.setState({
+      inRoom: room
+    });
+  }
+
+  _handleBackClick() {
+    this.setState({
+      inRoom: null
+    });
   }
 }
 

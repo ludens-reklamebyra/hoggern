@@ -1,20 +1,33 @@
 .game-board {
   @include flexbox;
   @include flex-flow(row wrap);
+  height: 768px;
   margin: 0 auto;
   max-width: 80rem;
   min-width: 62rem;
+  overflow: hidden;
   width: 100%;
 
   .map-area {
     @include flex(1 calc(100% - 20rem));
+    height: 500px;
+
+    .room-card {
+      height: 216px;
+    }
   }
 
   .menu-area {
     @include flex(1 20rem);
+    height: 500px;
   }
 
   .suspects-area {
     @include flex(1 100%);
+    height: 268px;
+
+    .suspect-card {
+      height: 160px;
+    }
   }
 }

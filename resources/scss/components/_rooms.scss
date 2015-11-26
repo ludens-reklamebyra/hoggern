@@ -19,13 +19,16 @@
     @include justify-content(center);
     background: $slightly-blackier-shade-of-gray;
     border-radius: .6rem;
+    box-sizing: border-box;
     color: $medium-light-gray;
-    height: 10rem;
+    cursor: not-allowed;
+    height: 100%;
     padding: 1rem;
 
     &--unlocked {
       background: $light-gray;
       color: $another-light-shade-of-gray;
+      cursor: pointer;
     }
   }
 
