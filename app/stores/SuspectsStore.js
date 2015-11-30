@@ -5,7 +5,7 @@ import suspectsData from '../../public/data/suspects.json';
 
 class SuspectsStore extends ReduceStore {
   getInitialState() {
-    return Immutable.List(suspectsData);
+    return Immutable.fromJS(suspectsData);
   }
 
   reduce(state, action) {
