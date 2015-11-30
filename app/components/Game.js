@@ -25,12 +25,6 @@ class Game extends Component {
     };
   }
 
-  componentWillMount() {
-    RoomsStore.addChangedListener(() => {
-      console.log('Changed!');
-    });
-  }
-
   render() {
     return <GameUI
       playerData={this.state.playerData}
