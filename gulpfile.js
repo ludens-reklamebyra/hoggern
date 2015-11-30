@@ -28,9 +28,7 @@ gulp.task('bundle', () => {
 
   bundler.transform(babelify, {presets: ['es2015', 'react']});
 
-  if (dev) {
-    bundler = watchify(bundler);
-  }
+  if (dev) bundler = watchify(bundler);
 
   bundler.on('update', bundle);
 

@@ -1,10 +1,16 @@
 import GameDispatcher from '../dispatcher/GameDispatcher';
 
 export default {
-  addScore: function(scoreToAdd) {
+  score: function(scoreToAdd) {
     GameDispatcher.dispatch({
       type: 'player/addScore',
       scoreToAdd: scoreToAdd
+    });
+  },
+  addDetectiveNote: function(text) {
+    GameDispatcher.dispatch({
+      type: 'player/addDetectiveNote',
+      text: text
     });
   },
   discoverCrimeClue: function(key) {

@@ -2,7 +2,7 @@ import React, {Component} from 'react'; // eslint-disable-line no-unused-vars
 
 class SuspectsArea extends Component {
   render() {
-    const suspects = this.props.suspects.map((suspect) => {
+    const suspects = this.props.suspects.map(suspect => {
       return(
         <div key={suspect._id} className='suspect-card'>
           <div className='suspect-card__container'>

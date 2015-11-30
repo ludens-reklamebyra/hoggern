@@ -38,7 +38,7 @@ class Room extends Component {
   }
 
   render() {
-    const hotspots = this.props.hotspots.map((hotspot) => {
+    const hotspots = this.props.hotspots.map(hotspot => {
       return(
         <button
           key={hotspot._id}

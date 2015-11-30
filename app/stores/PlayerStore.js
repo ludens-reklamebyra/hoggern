@@ -6,6 +6,7 @@ import crimeClues from '../../public/data/crime-clues.json';
 const playerData = {
   name: '',
   score: 0,
+  detectiveNotes: [],
   crimeClues: {
     where: {
       discovered: false,
@@ -33,7 +34,9 @@ class PlayerStore extends ReduceStore {
   reduce(state, action) {
     switch (action.type) {
       case 'player/addScore':
-        return state.update('score', (score) => score + action.scoreToAdd);
+        return state.update('score', score => score + action.scoreToAdd);
+      case 'player/addDetectiveNote':
+        return state.update('detectiveNotes', arr => arr.push(action.text));
       default:
         return state;
     }

@@ -34,5 +34,5 @@ class Game extends Component {
   }
 }
 
-const GameContainer = Container.create(Game, {pure: true});
+const GameContainer = Container.create(Game);
 export default GameContainer;

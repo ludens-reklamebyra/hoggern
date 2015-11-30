@@ -26,7 +26,7 @@ class MapArea extends Component {
   }
 
   render() {
-    const rooms = this.props.rooms.map((room) => {
+    const rooms = this.props.rooms.map(room => {
       const className = room.unlocked
         ? 'room-card__container room-card__container--unlocked'
         : 'room-card__container';
@@ -35,7 +35,7 @@ class MapArea extends Component {
         <div key={room._id} className='room-card'>
           <a
             href='#'
-            onClick={(e) => {
+            onClick={e => {
               e.preventDefault();
               this._handleRoomClick(room);
             }}
@@ -54,7 +54,7 @@ class MapArea extends Component {
               {this.state.inRoom ?
                 <a
                   href='#'
-                  onClick={(e) => {
+                  onClick={e => {
                     e.preventDefault();
                     this._handleBackClick();
                   }}>
