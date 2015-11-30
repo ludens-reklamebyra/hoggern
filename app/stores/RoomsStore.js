@@ -1,15 +1,28 @@
-import {Store} from 'flux/utils';
+import {ReduceStore} from 'flux/utils';
+import Immutable from 'immutable';
 import GameDispatcher from '../dispatcher/GameDispatcher';
 import roomsData from '../../public/data/rooms.json';
 
-class RoomsStore extends Store {
-  constructor(dispatcher) {
-    super(dispatcher);
-    this._rooms = roomsData;
+class RoomsStore extends ReduceStore {
+  getInitialState() {
+    return Immutable.List(roomsData);
   }
 
-  getRooms() {
-    return this._rooms;
+  reduce(state, action) {
+    switch (action.type) {
+      case 'rooms/unlock':
+        const rooms = state.map((room) => {
+          if (room._id === action.id) {
+            room.unlocked = true;
+          }
+
+          return room;
+        });
+
+        return Immutable.List(rooms);
+      default:
+        return state;
+    }
   }
 
   addChangedListener(cb) {
@@ -19,27 +32,6 @@ class RoomsStore extends Store {
   removeChangedListener(listener) {
     listener.remove();
     return null;
-  }
-
-  __onDispatch(payload) {
-    switch (payload.type) {
-      case 'rooms/unlock':
-        let rms = [];
-
-        for (let room of this._rooms) {
-          if (room._id === payload.id) {
-            room.unlocked = true;
-          }
-
-          rms.push(room);
-        }
-
-        this._rooms = rms;
-        this.__emitChange();
-        break;
-      default:
-        return false;
-    }
   }
 }
 

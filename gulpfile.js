@@ -101,8 +101,7 @@ gulp.task('js-lint', () => {
         browser: true
       }
     }))
-    .pipe(eslint.format())
-    .pipe(eslint.failAfterError());
+    .pipe(eslint.format());
 });
 
 gulp.task('startServer', () => {

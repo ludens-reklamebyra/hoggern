@@ -18,10 +18,10 @@ class Game extends Component {
 
   static calculateState() {
     return {
-      playerData: PlayerStore.getPlayerData(),
-      rooms: RoomsStore.getRooms(),
-      suspects: SuspectsStore.getSuspects(),
-      hotspots: HotspotsStore.getHotspots()
+      playerData: PlayerStore.getState(),
+      rooms: RoomsStore.getState(),
+      suspects: SuspectsStore.getState(),
+      hotspots: HotspotsStore.getState()
     };
   }
 
@@ -34,5 +34,5 @@ class Game extends Component {
   }
 }
 
-const GameContainer = Container.create(Game, {pure: false});
+const GameContainer = Container.create(Game, {pure: true});
 export default GameContainer;

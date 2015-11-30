@@ -10,7 +10,7 @@ class MenuArea extends Component {
           <div className='branding__title'>Et Hjulemysterium</div>
         </div>
         <Menu />
-        <Notes crimeClues={this.props.playerData.crimeClues} />
+        <Notes crimeClues={this.props.playerData.get('crimeClues')} />
       </div>
     );
   }

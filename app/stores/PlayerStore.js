@@ -1,50 +1,41 @@
-import {Store} from 'flux/utils';
+import {ReduceStore} from 'flux/utils';
+import Immutable from 'immutable';
 import GameDispatcher from '../dispatcher/GameDispatcher';
 import crimeClues from '../../public/data/crime-clues.json';
 
-class PlayerStore extends Store {
-  constructor(dispatcher) {
-    super(dispatcher);
-    this._playerData = {
-      name: '',
-      score: 0,
-      crimeClues: {
-        where: {
-          discovered: false,
-          heading: crimeClues.where.heading,
-          discoveredText: ''
-        },
-        when: {
-          discovered: false,
-          heading: crimeClues.when.heading,
-          discoveredText: ''
-        },
-        how: {
-          discovered: false,
-          heading: crimeClues.how.heading,
-          discoveredText: ''
-        }
-      }
-    };
+const playerData = {
+  name: '',
+  score: 0,
+  crimeClues: {
+    where: {
+      discovered: false,
+      heading: crimeClues.where.heading,
+      discoveredText: ''
+    },
+    when: {
+      discovered: false,
+      heading: crimeClues.when.heading,
+      discoveredText: ''
+    },
+    how: {
+      discovered: false,
+      heading: crimeClues.how.heading,
+      discoveredText: ''
+    }
+  }
+};
+
+class PlayerStore extends ReduceStore {
+  getInitialState() {
+    return Immutable.fromJS(playerData);
   }
 
-  getPlayerData() {
-    return this._playerData;
-  }
-
-  __onDispatch(payload) {
-    switch (payload.type) {
+  reduce(state, action) {
+    switch (action.type) {
       case 'player/addScore':
-        this._playerData.score += payload.scoreToAdd;
-        this.__emitChange();
-        break;
-      case 'player/discoverCrimeClue':
-        this._playerData.crimeClues[payload.key].discovered = true;
-        this._playerData.crimeClues[payload.key].discoveredText = crimeClues[payload.key].discoveredText;
-        this.__emitChange();
-        break;
+        return state.update('score', (score) => score + action.scoreToAdd);
       default:
-        return false;
+        return state;
     }
   }
 }
