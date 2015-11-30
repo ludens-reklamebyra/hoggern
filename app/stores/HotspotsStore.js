@@ -5,7 +5,7 @@ import hotspotsData from '../../public/data/hotspots.json';
 
 class HotspotsStore extends ReduceStore {
   getInitialState() {
-    return Immutable.List(hotspotsData);
+    return Immutable.fromJS(hotspotsData);
   }
 
   reduce(state, action) {

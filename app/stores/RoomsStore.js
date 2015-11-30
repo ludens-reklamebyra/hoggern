@@ -5,7 +5,7 @@ import roomsData from '../../public/data/rooms.json';
 
 class RoomsStore extends ReduceStore {
   getInitialState() {
-    return Immutable.List(roomsData);
+    return Immutable.fromJS(roomsData);
   }
 
   reduce(state, action) {

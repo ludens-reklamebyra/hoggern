@@ -27,12 +27,12 @@ class MapArea extends Component {
 
   render() {
     const rooms = this.props.rooms.map(room => {
-      const className = room.unlocked
+      const className = room.get('unlocked')
         ? 'room-card__container room-card__container--unlocked'
         : 'room-card__container';
 
       return(
-        <div key={room._id} className='room-card'>
+        <div key={room.get('_id')} className='room-card'>
           <a
             href='#'
             onClick={e => {
@@ -40,7 +40,7 @@ class MapArea extends Component {
               this._handleRoomClick(room);
             }}
             className={className}>
-            <div className='room-card__title'>{room.name}</div>
+            <div className='room-card__title'>{room.get('name')}</div>
           </a>
         </div>
       );
@@ -81,11 +81,12 @@ class MapArea extends Component {
   }
 
   _handleRoomClick(room) {
-    if (!room.unlocked) return false;
+    if (!room.get('unlocked')) return false;
     let relevantHotspots = [];
 
     for (let hotspot of this.props.hotspots) {
-      if (hotspot.room === room._id && hotspot.stage === room.currentStage) {
+      if (hotspot.get('room') === room.get('_id') &&
+          hotspot.get('stage') === room.get('currentStage')) {
         relevantHotspots.push(hotspot);
       }
     }

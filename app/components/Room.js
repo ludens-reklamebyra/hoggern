@@ -41,14 +41,16 @@ class Room extends Component {
     const hotspots = this.props.hotspots.map(hotspot => {
       return(
         <button
-          key={hotspot._id}
+          key={hotspot.get('_id')}
           onClick={() => {
-            this.props.handleOpenModal(() => this.fetchDialog(hotspot._id));
+            this.props.handleOpenModal(() => {
+              this.fetchDialog(hotspot.get('_id'));
+            });
           }}
           className='hotspot'
           style={{
-            top: hotspot.coords[0] + 'px',
-            left: hotspot.coords[1] + 'px'
+            top: hotspot.get('coords').get(0) + 'px',
+            left: hotspot.get('coords').get(1) + 'px'
           }}>
         </button>
       );
@@ -60,7 +62,9 @@ class Room extends Component {
           className='room-underlay'
           style={{
             backgroundImage: 'url(/images/rooms/'
-              + this.props.room.stages[this.props.room.currentStage]
+              + this.props.room
+                .get('stages')
+                .get(this.props.room.get('currentStage'))
               + ')'
           }}
           >
@@ -69,7 +73,9 @@ class Room extends Component {
           className='room'
           style={{
             backgroundImage: 'url(/images/rooms/'
-              + this.props.room.stages[this.props.room.currentStage]
+              + this.props.room
+                .get('stages')
+                .get(this.props.room.get('currentStage'))
               + ')'
           }}>
           {hotspots}
