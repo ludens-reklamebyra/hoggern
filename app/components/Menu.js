@@ -1,5 +1,5 @@
 import React, {Component} from 'react'; // eslint-disable-line no-unused-vars
-import PlayerAction from '../actions/PlayerActionCreator';
+import RoomsAction from '../actions/RoomsActionCreator';
 
 class Menu extends Component {
   render() {
@@ -16,7 +16,7 @@ class Menu extends Component {
   }
 
   _handleClueClick() {
-    PlayerAction.addDetectiveNote('bolalrd');
+    RoomsAction.unlock('kjerstins_office__');
   }
 }
 

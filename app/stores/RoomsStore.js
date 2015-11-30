@@ -11,15 +11,10 @@ class RoomsStore extends ReduceStore {
   reduce(state, action) {
     switch (action.type) {
       case 'rooms/unlock':
-        const rooms = state.map((room) => {
-          if (room._id === action.id) {
-            room.unlocked = true;
-          }
-
-          return room;
-        });
-
-        return Immutable.List(rooms);
+        return state.update(
+          state.findIndex(v => v.get('_id') === action.id),
+          v => v.set('unlocked', true)
+        );
       default:
         return state;
     }
