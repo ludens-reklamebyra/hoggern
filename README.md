@@ -17,6 +17,7 @@ $ gulp compile --production // Compiles for production
 
 ## Guidelines
 - Use [ES2015 syntax](https://github.com/lukehoban/es6features)
+- STAY WITHIN THE 80 CHARACTER PREFERRED LINE LENGTH. plz
 - Use [immutable data](https://facebook.github.io/immutable-js/) in stores
 - React components are scss classes
 - Use `--modifier` `__sub-class` structure for scss classes
