@@ -63,7 +63,9 @@ class MapArea extends Component {
                 </a> : null}
             </span>
           </div>
-          <h2>{this.state.inRoom ? this.state.inRoom.name : 'Ludens lokaler'}</h2>
+          <h2>
+            {this.state.inRoom ? this.state.inRoom.name: 'Ludens lokaler'}
+          </h2>
           <div className='map-nav__interaction'></div>
         </div>
         <div className='map-content'>

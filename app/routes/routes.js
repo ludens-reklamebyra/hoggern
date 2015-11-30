@@ -5,6 +5,6 @@ import Game from '../components/Game';
 export default function(app) {
 	app.get('/', (req, res) => {
 		const markup = ReactDOMServer.renderToString(<Game />);
-    res.render('game', {game: markup});
+		res.render('game', {game: markup});
 	});
 }
